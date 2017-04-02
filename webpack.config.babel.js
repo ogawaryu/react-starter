@@ -10,13 +10,16 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel-loader'],
-      exclude: /node_modules/
+      loaders: 'babel-loader',
+      exclude: /node_modules/,
+      query: {
+        presets: ['es2015', 'react', 'stage-2']
+      }
     }]
   },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: PRODUCTION ? '/' : '/dist/',
-    filename: PRODUCTION ? 'bundle.[hash:12].min.js' : 'bundle.js'
+    filename: PRODUCTION ? 'bundle.min.js' : 'bundle.js'
   }
 };
