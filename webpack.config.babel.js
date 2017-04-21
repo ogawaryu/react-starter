@@ -2,8 +2,9 @@ import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
+const PRODUCTION = process.env.NODE_ENV === 'production'
+
 module.exports = {
-  devtool : 'source-map',
   entry : {
     application : './src/app.js'
   },
@@ -18,14 +19,15 @@ module.exports = {
     }]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: "[name].js"
+    path : path.join(__dirname, 'dist/assets'),
+    publicPath : PRODUCTION ? '/assets/' : '/',
+    filename: PRODUCTION ? '[name].min.js' : '[name].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
       title : 'React Starter',
-      template : './src/index.ejs'
+      template : './src/index.ejs',
+      filename: PRODUCTION ? "../index.html" : "index.html"
     })
   ]
 };
