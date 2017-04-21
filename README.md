@@ -8,7 +8,7 @@ Como usar:
 # git clone https://github.com/ogawaryu/react-starter.git
 ```
 
-+ Você precisa ter o NODE.JS instalado na sua maquina.
++ Você precisa ter o NODE.JS instalado na sua máquina.
 Execute o comando:
 
 ```shellscript
