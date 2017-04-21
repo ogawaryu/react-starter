@@ -1,12 +1,12 @@
 import path from 'path'
 import webpack from 'webpack'
-
-const DEVELOPMENT = process.env.NODE_ENV === 'development'
-const PRODUCTION = process.env.NODE_ENV === 'production'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 module.exports = {
-  devtool: 'source-map',
-  entry: './src/app.js',
+  devtool : 'source-map',
+  entry : {
+    application : './src/app.js'
+  },
   module: {
     loaders: [{
       test: /\.js$/,
@@ -19,7 +19,13 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: PRODUCTION ? '/' : '/dist/',
-    filename: PRODUCTION ? 'bundle.min.js' : 'bundle.js'
-  }
+    publicPath: '/',
+    filename: "[name].js"
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title : 'React Starter',
+      template : './src/index.ejs'
+    })
+  ]
 };
