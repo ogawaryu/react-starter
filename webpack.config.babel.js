@@ -6,7 +6,7 @@ const PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry : {
-    application : './src/app.js'
+    app : './src/app.js'
   },
   module: {
     loaders: [{
@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path : path.join(__dirname, 'dist/assets'),
     publicPath : PRODUCTION ? '/assets/' : '/',
-    filename: PRODUCTION ? '[name].min.js' : '[name].js'
+    filename: PRODUCTION ? '[name].[chunkhash].min.js' : '[name].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
