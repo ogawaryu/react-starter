@@ -1,5 +1,4 @@
 # React Starter
-Basic dependency to create prototypes
 
 Como usar:
 
@@ -21,7 +20,7 @@ Execute o comando:
 + Para começar a desenvolver em React apenas rode o comando:
 
 ```shellscript
-# npm run dev
+# npm run build:dev
 ```
 
 Pronto. :+1:
